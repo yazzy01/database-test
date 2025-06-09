@@ -1,0 +1,29 @@
+DATABASE QUERIES
+
+1. CREATE A DATABASE:
+CREATE DATABASE school_db;
+
+2. CREATE TABLES IN THE DATABASE:
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    email VARCHAR(100)
+);
+
+CREATE TABLE courses (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    hours INT
+);
+
+3. INSERT DATA INTO THE TABLES:
+INSERT INTO students (id, name, age, email) VALUES
+(1, 'John Smith', 20, 'john@example.com'),
+(2, 'Emma Johnson', 21, 'emma@example.com'),
+(3, 'Michael Davis', 19, 'michael@example.com');
+
+INSERT INTO courses (id, name, hours) VALUES
+(1, 'Introduction to Databases', 30),
+(2, 'Programming Basics', 40),
+(3, 'Web Development', 35); 

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet SQL CRUD – Gestion des Étudiants</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #0066cc;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        .operation {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .create {
+            background-color: #e6fff2;
+            border-left: 4px solid #00cc66;
+        }
+        .read {
+            background-color: #e6f7ff;
+            border-left: 4px solid #0099ff;
+        }
+        .update {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+        }
+        .delete {
+            background-color: #ffe6e6;
+            border-left: 4px solid #ff6666;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .icon {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Projet SQL CRUD – Gestion des Étudiants</h1>
+        
+        <h2>1. Création de la Table</h2>
+        <pre>CREATE TABLE etudiants (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    classe VARCHAR(20),
+    age INT CHECK (age >= 5 AND age <= 100)
+);</pre>
+
+        <h2>2. Opérations CRUD</h2>
+
+        <div class="operation create">
+            <h3><span class="icon">📁</span> CREATE - Ajouter un étudiant</h3>
+            <pre>INSERT INTO etudiants (nom, prenom, email, classe, age)
+VALUES ('Bennani', 'Salma', 'salma.bennani@email.com', '1ère année', 20);
+
+INSERT INTO etudiants (nom, prenom, email, classe, age)
+VALUES ('Alaoui', 'Ahmed', 'ahmed.alaoui@email.com', '2ème année', 22);
+
+INSERT INTO etudiants (nom, prenom, email, classe, age)
+VALUES ('Mansouri', 'Karim', 'karim.mansouri@email.com', '1ère année', 19);</pre>
+        </div>
+
+        <div class="operation read">
+            <h3><span class="icon">🔍</span> READ - Lister et rechercher des étudiants</h3>
+            <h4>Lister tous les étudiants</h4>
+            <pre>SELECT * FROM etudiants;</pre>
+            
+            <h4>Rechercher un étudiant par nom</h4>
+            <pre>SELECT * FROM etudiants WHERE nom = 'Bennani';</pre>
+        </div>
+
+        <div class="operation update">
+            <h3><span class="icon">✏️</span> UPDATE - Modifier les informations d'un étudiant</h3>
+            <h4>Modifier la classe d'un étudiant</h4>
+            <pre>UPDATE etudiants
+SET classe = '2ème année'
+WHERE id = 1;</pre>
+
+            <h4>Modifier l'email d'un étudiant</h4>
+            <pre>UPDATE etudiants
+SET email = 'salma.bennani.new@email.com'
+WHERE id = 1;</pre>
+        </div>
+
+        <div class="operation delete">
+            <h3><span class="icon">❌</span> DELETE - Supprimer un étudiant</h3>
+            <pre>DELETE FROM etudiants WHERE id = 1;</pre>
+        </div>
+    </div>
+</body>
+</html> 

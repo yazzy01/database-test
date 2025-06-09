@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Database Queries</title>
+</head>
+<body>
+    <h1>Database Queries</h1>
+
+    <h2>1. Create a database</h2>
+    <pre>CREATE DATABASE school_db;</pre>
+
+    <h2>2. Create tables in the database</h2>
+    <pre>CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT,
+    email VARCHAR(100)
+);
+
+CREATE TABLE courses (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    hours INT
+);</pre>
+
+    <h2>3. Insert data into the tables</h2>
+    <pre>INSERT INTO students (id, name, age, email) VALUES
+(1, 'John Smith', 20, 'john@example.com'),
+(2, 'Emma Johnson', 21, 'emma@example.com'),
+(3, 'Michael Davis', 19, 'michael@example.com');
+
+INSERT INTO courses (id, name, hours) VALUES
+(1, 'Introduction to Databases', 30),
+(2, 'Programming Basics', 40),
+(3, 'Web Development', 35);</pre>
+</body>
+</html> 
